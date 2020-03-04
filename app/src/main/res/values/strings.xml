@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Connect-O</string>
+    <string name="connect_o">CONNECT-O</string>
+    <string name="create_an_account">Create an Account</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="already_registered_login_here">Already Registered? Login Here.</string>
+    <string name="logout">logout</string>
+</resources>
