@@ -9,4 +9,6 @@
     <string name="register">Register</string>
     <string name="already_registered_login_here">Already Registered? Login Here.</string>
     <string name="logout">logout</string>
+    <string name="capture_and_upload">Capture and Upload</string>
+    <string name="captured_image">Captured Image</string>
 </resources>

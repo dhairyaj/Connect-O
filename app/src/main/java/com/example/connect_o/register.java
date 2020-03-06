@@ -41,7 +41,7 @@ public class register extends AppCompatActivity {
 
         //Check if user is already logged in
         if(fAuth.getCurrentUser() != null){
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            startActivity(new Intent(getApplicationContext(), Camera.class));
             finish();
         }
 
@@ -76,7 +76,7 @@ public class register extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
                             Toast.makeText(register.this, "User Registered", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                            startActivity(new Intent(getApplicationContext(), Camera.class));
 
                         }else{
                             Toast.makeText(register.this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
