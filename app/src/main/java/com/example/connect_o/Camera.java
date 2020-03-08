@@ -41,7 +41,7 @@ public class Camera extends AppCompatActivity {
 
     public static final int CAMERA_PERM_CODE = 101;
     public static final int CAMERA_REQUEST_CODE = 102;
-    public static final int GALLERY_REQUEST_CODE = 105;
+    //public static final int GALLERY_REQUEST_CODE = 105;
     ImageView image;
     Button camerabtn,logoutbtn;
     String currentPhotoPath;
@@ -60,6 +60,7 @@ public class Camera extends AppCompatActivity {
         storageReference = FirebaseStorage.getInstance().getReference();
 
         camerabtn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.N)
             @Override
             public void onClick(View v) {
                 askCameraPermissions();
@@ -68,14 +69,16 @@ public class Camera extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private void askCameraPermissions() {
         if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this, new String[ {Manifest.permission.CAMERA}, CAMERA_PERM_CODE] );
+            ActivityCompat.requestPermissions(this, new String[] {Manifest.permission.CAMERA}, CAMERA_PERM_CODE );
         }else{
             dispatchTakePictureIntent();
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if(requestCode == CAMERA_PERM_CODE){
@@ -193,7 +196,7 @@ public class Camera extends AppCompatActivity {
             // Continue only if the File was successfully created
             if (photoFile != null) {
                 Uri photoURI = FileProvider.getUriForFile(this,
-                        "net.smallacademy.android.fileprovider",
+                        "com.example.connect_o.fileprovider",
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, CAMERA_REQUEST_CODE);
